@@ -228,6 +228,14 @@
 			#size-cells = <0>;
 			status = "disabled";
 		};
+		
+		nvme@610000000 {
+			compatible = "apple,t7000-nvme", "apple,nvme";
+			reg = <0x6 0x10000000 0x0 0x1000000>;
+			reg-names = "nvme", "ans";
+			interrupt-parent = <&aic>;
+			interrupts = <AIC_IRQ 590 IRQ_TYPE_LEVEL_HIGH>;
+		};
 
 		usbcomplex {
 			compatible = "simple-bus";
