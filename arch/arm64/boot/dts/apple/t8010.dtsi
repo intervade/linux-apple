@@ -217,6 +217,20 @@
 				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
 				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
 		};
+		
+		sart: iommu@27bc50000 {
+			compatible = "apple,t8010-sart";
+			reg = <0x2 0x7bc50000 0x0 0x10000>;
+		};
+
+		nvme@601004000 {
+			compatible = "apple,t8010-nvme", "apple,nvme";
+			reg = <0x6 0x01004000 0x0 0x4000>;
+			reg-names = "nvme";
+			interrupt-parent = <&aic>;
+			interrupts = <AIC_IRQ 272 IRQ_TYPE_LEVEL_HIGH>;
+			apple,sart = <&sart>;
+		};
 
 		wdt: watchdog@2102b0000 {
 			compatible = "apple,t8010-wdt", "apple,wdt";
